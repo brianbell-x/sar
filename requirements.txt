@@ -1,0 +1,6 @@
+streamlit
+openai>=1.68.2
+python-dotenv
+requests
+pdfkit
+pdfrw==0.4.0

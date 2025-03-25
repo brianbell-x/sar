@@ -1,0 +1,1750 @@
+{
+  "37-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "37-3",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "Body": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "FormName": {
+    "current_value": "(6710-06)",
+    "default_value": "(6710-06)",
+    "flags": "8388608",
+    "name": "FormName",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "Header": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "Help": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "ITEM22-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "ITEM22-7",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "ITEM22-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "ITEM22-8",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "Open": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "POC": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "Refresh": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "Save": {
+    "flags": null,
+    "name": "None",
+    "page": 5,
+    "type": null
+  },
+  "item1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item10": {
+    "flags": null,
+    "name": "item10",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item11-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item11-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item11-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item11-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-4",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-5",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-6",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-7",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-8",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item12-9": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item12-9",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item13-1": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item13-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item13-2": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item13-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item13-3": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item13-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item14a": {
+    "flags": null,
+    "name": "item14a",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item14a-1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14a-1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14a-2": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14a-2",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14b": {
+    "flags": null,
+    "name": "item14b",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item14b-1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14b-1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14b-2": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14b-2",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14c": {
+    "flags": null,
+    "name": "item14c",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item14c-1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14c-1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14c-2": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14c-2",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14d": {
+    "flags": null,
+    "name": "item14d",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item14d-1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14d-1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item14d-2": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item14d-2",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item15": {
+    "flags": null,
+    "name": "item15",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item16": {
+    "flags": null,
+    "name": "item16",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item17": {
+    "flags": null,
+    "name": "item17",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item18": {
+    "flags": null,
+    "name": "item18",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item19": {
+    "flags": null,
+    "max_length": "9",
+    "name": "item19",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item2": {
+    "current_value": "()",
+    "flags": "4096",
+    "name": "item2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item20": {
+    "flags": null,
+    "name": "item20",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item21a": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item21a",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item21b": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item21b",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-4",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-5",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-6",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item22-9": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item22-9",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item23": {
+    "flags": null,
+    "name": "item23",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item24-1": {
+    "flags": null,
+    "max_length": "3",
+    "name": "item24-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item24-2": {
+    "flags": null,
+    "max_length": "7",
+    "name": "item24-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item25-1": {
+    "flags": null,
+    "max_length": "3",
+    "name": "item25-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item25-2": {
+    "flags": null,
+    "max_length": "7",
+    "name": "item25-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item26": {
+    "flags": null,
+    "name": "item26",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item27-1": {
+    "flags": null,
+    "name": "None",
+    "page": 2,
+    "type": null
+  },
+  "item27-2": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item27-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item27-3": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item27-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item28a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item28b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item29-1": {
+    "flags": null,
+    "name": "item29-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item29-2": {
+    "flags": null,
+    "name": "item29-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item29-3": {
+    "flags": null,
+    "name": "item29-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item29a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item29b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item29c": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item29d": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item3": {
+    "flags": null,
+    "max_length": "9",
+    "name": "item3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item30-1": {
+    "flags": null,
+    "name": "item30-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item30a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30c": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30d": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30e": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30f": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30g": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30h": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30i": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30j": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30k": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item30l": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item31a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item31b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item31c": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item31c",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item31d": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item31d",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item31e": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item31e",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item31f": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item31f",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item32-1": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item32-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item32-2": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item32-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item32-3": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item32-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item33-1": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item33-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item33-2": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item33-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item33-3": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item33-3",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item33-4": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item33-4",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item33-5": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item33-5",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item33-6": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item33-6",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-10": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-10",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-11": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-11",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-3",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-4",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-5",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-6",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-7",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-8",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item34-9": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item34-9",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item35a": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35a",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35b": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35b",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35c": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35c",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35d": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35d",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35e": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35e",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35f": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35f",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35g": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35g",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35h": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35h",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35i": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35i",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35j": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35j",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35k": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35k",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35l": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35l",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35m": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35m",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35n": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35n",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35o": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35o",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35p": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35p",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35q": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35q",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35r": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35r",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35s": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35s",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35s-1": {
+    "flags": null,
+    "name": "item35s-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item35t": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35t",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item35u": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item35u",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item36-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-3",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-4",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-5",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-6",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-7",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item36-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item36-8",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-4",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-5",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-6",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-7",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-8",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item37-9": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item37-9",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item38a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 2,
+    "type": null
+  },
+  "item38b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 2,
+    "type": null
+  },
+  "item39a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 2,
+    "type": null
+  },
+  "item39b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 2,
+    "type": null
+  },
+  "item4": {
+    "flags": null,
+    "name": "item4",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item40a": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40a",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40b": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40b",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40c": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40c",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40d": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40d",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40e": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40e",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40f": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40f",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40g": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40g",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40h": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40h",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40i": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40i",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40j": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item40j",
+    "page": 2,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "item40j-1": {
+    "flags": null,
+    "name": "item40j-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item41": {
+    "flags": null,
+    "name": "item41",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item42-1": {
+    "flags": null,
+    "max_length": "3",
+    "name": "item42-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item42-2": {
+    "flags": null,
+    "max_length": "7",
+    "name": "item42-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item43": {
+    "flags": null,
+    "name": "item43",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item44-1": {
+    "flags": null,
+    "max_length": "3",
+    "name": "item44-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item44-2": {
+    "flags": null,
+    "max_length": "7",
+    "name": "item44-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item45": {
+    "flags": null,
+    "name": "item45",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item46": {
+    "flags": null,
+    "name": "item46",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item47": {
+    "flags": null,
+    "name": "item47",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item48": {
+    "flags": null,
+    "name": "item48",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item49-1": {
+    "flags": null,
+    "max_length": "3",
+    "name": "item49-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item49-2": {
+    "flags": null,
+    "max_length": "7",
+    "name": "item49-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item50-1": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item50-1",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item50-2": {
+    "flags": null,
+    "max_length": "2",
+    "name": "item50-2",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item50-3": {
+    "flags": null,
+    "max_length": "4",
+    "name": "item50-3",
+    "page": 2,
+    "type": "/Tx"
+  },
+  "item51": {
+    "current_value": "()",
+    "flags": "4096",
+    "name": "item51",
+    "page": 3,
+    "type": "/Tx"
+  },
+  "item5a": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item5b": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item5c": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item5d": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item5e": {
+    "appearance_state": "/Off",
+    "flags": null,
+    "name": "None",
+    "page": 1,
+    "type": null
+  },
+  "item6": {
+    "flags": null,
+    "name": "item6",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item7",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item7-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item7-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-1": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-1",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-2": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-2",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-3": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-3",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-4": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-4",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-5": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-5",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-6": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-6",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-7": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-7",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-8": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-8",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item8-9": {
+    "flags": null,
+    "max_length": "1",
+    "name": "item8-9",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item9": {
+    "flags": null,
+    "name": "item9",
+    "page": 1,
+    "type": "/Tx"
+  },
+  "item9-1": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "item9-1",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  },
+  "itemPII": {
+    "appearance_options": {},
+    "appearance_state": "/Off",
+    "down_states": [
+      "/Off",
+      "/Yes"
+    ],
+    "flags": null,
+    "name": "itemPII",
+    "page": 1,
+    "states": [
+      "/Yes"
+    ],
+    "type": "/Btn"
+  }
+}

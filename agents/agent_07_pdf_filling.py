@@ -1,6 +1,6 @@
 import logging
 import os
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 from datetime import datetime
 
 # Configure logging

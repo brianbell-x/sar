@@ -5,6 +5,8 @@ from openai import OpenAI
 import dotenv
 import time # For potential visual delays/spinners if needed
 
+api_key = st.secrets.get("api_key")
+
 # --- Agent Imports ---
 # Assuming these are correctly placed and importable
 try:
@@ -24,15 +26,10 @@ dotenv.load_dotenv()
 
 # Page configuration
 st.set_page_config(
-    page_title="SAR AI Assistant",
+    page_title="SAR AI",
     page_icon="🛡️", # Changed icon
     layout="wide",
     initial_sidebar_state="expanded",
-    menu_items={
-        'Get Help': None, # Removed default menu items
-        'Report a bug': None,
-        'About': "# SAR AI Assistant POC\nProof of concept for AI-driven SAR generation."
-    }
 )
 
 # --- Utility Functions ---
@@ -70,33 +67,9 @@ with st.sidebar:
     st.caption("Automated Suspicious Activity Reporting")
     st.divider()
 
-    st.header("🔑 API Configuration")
-    # Attempt to load API key from environment or secrets
-    api_key = os.environ.get("api_key") or st.secrets.get("api_key")
 
-    # Input for API key if not found automatically
-    if not api_key:
-        api_key_input = st.text_input("Enter OpenAI API Key:", type="password", help="Your key is needed to run the AI agents.")
-        if api_key_input:
-            api_key = api_key_input
-            st.success("API Key entered.")
-        else:
-            st.warning("API key not found. Please enter it above or set it in your environment/secrets.")
-            st.markdown("""
-            Add your API key to a `.env` file or `.streamlit/secrets.toml`:
-            ```toml
-            # .streamlit/secrets.toml
-            api_key = "your-api-key"
-            ```
-            """)
-    else:
-        st.success("API key loaded successfully.")
-        # Optionally show a masked version or just confirmation
-        # st.text(f"Key Loaded: ...{api_key[-4:]}")
 
-    st.divider()
-
-    st.header("💾 Data Input")
+    st.header("Data Input")
     input_option = st.radio(
         "Choose transaction data source:",
         ["Use Sample Data", "Upload Custom JSON File", "Enter Custom JSON Text"],
@@ -157,13 +130,6 @@ with st.sidebar:
          with st.expander("View Sample Data"):
             st.json(transaction_data, expanded=False) # Keep collapsed by default
 
-
-# --- Main Content Area ---
-
-st.title("🛡️ SAR AI Assistant")
-st.write("Proof of concept for an AI-driven workflow to analyze transactions and generate Suspicious Activity Reports (SARs).")
-st.divider()
-
 # Check prerequisites before allowing workflow run
 can_run_workflow = api_key and transaction_data and AGENTS_LOADED
 run_button_disabled_reason = ""
@@ -172,7 +138,7 @@ if not transaction_data: run_button_disabled_reason += "Transaction data missing
 if not AGENTS_LOADED: run_button_disabled_reason += "Agent modules failed to load. "
 
 
-if st.button("🚀 Run Fraud Detection Workflow", type="primary", disabled=not can_run_workflow, use_container_width=True):
+if st.button("Run Fraud Detection Workflow", type="primary", disabled=not can_run_workflow, use_container_width=True):
 
     if not can_run_workflow: # Redundant check, but safe
         st.error(f"Cannot run workflow: {run_button_disabled_reason.strip()}")
@@ -408,15 +374,3 @@ if st.button("🚀 Run Fraud Detection Workflow", type="primary", disabled=not c
                 if 'current_step_index' in locals():
                      update_step_status(current_step_index, "failed", str(e))
                 progress_bar.progress(100, text="Workflow Failed!") # Show progress bar full on error
-
-else:
-    # Show placeholder/instructions if button not clicked or disabled
-    if not can_run_workflow:
-        st.warning(f"Please ensure prerequisites are met to run the workflow: {run_button_disabled_reason.strip()}")
-    else:
-        st.info("Configure settings in the sidebar and click 'Run Fraud Detection Workflow' to start.")
-
-
-# --- Footer ---
-st.divider()
-st.caption("SAR AI Assistant POC - For demonstration purposes only.")

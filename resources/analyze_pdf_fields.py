@@ -160,6 +160,6 @@ def analyze_pdf_fields(pdf_path: str, output_path: str) -> None:
 if __name__ == "__main__":
     # Analyze both the template and filled PDF
     analyze_pdf_fields(
-        "resources/6710-06_renamed.pdf",
+        "resources/6710-06.pdf",
         "resources/field_analysis.json"
     )

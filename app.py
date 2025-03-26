@@ -240,6 +240,8 @@ if st.button("Run Fraud Detection Workflow", type="primary", disabled=not can_ru
 
                 # Update verification status for final outcome display
                 verification_status = workflow_results["status"]
+                iteration_results = workflow_results["iteration_results"]
+                sar_report = workflow_results["final_sar_report"]
 
                 # --- Final Outcome ---
                 st.divider()
@@ -251,7 +253,7 @@ if st.button("Run Fraud Detection Workflow", type="primary", disabled=not can_ru
                         st.success(f"✅ SAR Approved after {len(iteration_results)} iteration(s).")
                         progress_bar.progress(100, text="Workflow Completed: Approved")
                     elif verification_status == "needs_revision":
-                        st.warning(f"⚠️ Reached maximum iterations ({max_iterations}). Final SAR needs manual review.")
+                        st.warning(f"⚠️ Reached maximum iterations ({self.max_iterations}). Final SAR needs manual review.")
                         progress_bar.progress(100, text="Workflow Completed: Needs Review")
                     elif verification_status == "rejected":
                          st.error(f"❌ SAR Rejected. Manual intervention required.")

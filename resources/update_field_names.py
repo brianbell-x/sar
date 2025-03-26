@@ -17,7 +17,6 @@ import re
 import shutil
 from typing import Dict
 from datetime import datetime
-import argparse
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -243,11 +242,6 @@ FIELD_MAPPING = {
     "FormName": "form_name_display", # Usually read-only display field
     "Body": "body_section_container", # Likely structural, not fillable data
     "Header": "header_section_container", # Likely structural
-    "Help": "help_button",
-    "Open": "open_button",
-    "POC": "poc_button",
-    "Refresh": "refresh_button",
-    "Save": "save_button"
     # Add any other fields found during analysis
 }
 
@@ -373,12 +367,17 @@ def update_pdf_field_names(pdf_path: str, output_path: str, field_mapping: Dict[
         logger.error(f"An unexpected error occurred during PDF processing: {e}", exc_info=True)
 
 def main():
-    parser = argparse.ArgumentParser(description="Update field names in a PDF template based on a predefined mapping.")
-    parser.add_argument("--input", required=True, help="Path to the original input PDF template (e.g., resources/6710-06.pdf)")
-    parser.add_argument("--output", required=True, help="Path to save the modified PDF with descriptive field names (e.g., resources/6710-06_descriptive.pdf)")
-    args = parser.parse_args()
+    """
+    Main function to run the PDF field name update process with hardcoded paths.
+    """
+    input_pdf_path = "resources/6710-06.pdf"
+    output_pdf_path = "resources/6710-06_descriptive.pdf"
+    logger.info(f"Starting PDF field name update.")
+    logger.info(f"Input PDF: {input_pdf_path}")
+    logger.info(f"Output PDF: {output_pdf_path}")
 
-    update_pdf_field_names(args.input, args.output, FIELD_MAPPING)
+    update_pdf_field_names(input_pdf_path, output_pdf_path, FIELD_MAPPING)
+    logger.info("PDF field name update process finished.")
 
 if __name__ == "__main__":
     main()

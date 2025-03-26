@@ -19,8 +19,6 @@ except ImportError as e:
     st.error(f"Failed to import agents: {e}. Please ensure agent files exist and are importable.")
     AGENTS_LOADED = False
 
-# --- Configuration & Initialization ---
-
 # Load environment variables
 dotenv.load_dotenv()
 
@@ -31,8 +29,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
-# --- Utility Functions ---
 
 def create_client(api_key):
     """Create and configure the OpenAI API client."""
@@ -59,12 +55,10 @@ def load_sample_data(filepath="sample_transactions.json"):
         st.error(f"Error loading sample data: {str(e)}")
         return None
 
-# --- Sidebar ---
 
 with st.sidebar:
-    st.image("https://img.icons8.com/?size=100&id=oR4DFJc9WUk0&format=png&color=000000", width=80) # Example logo/icon
     st.markdown("# SAR AI Assistant")
-    st.caption("Automated Suspicious Activity Reporting")
+    st.caption("Automated Suspicious Activity Reports")
     st.divider()
 
 

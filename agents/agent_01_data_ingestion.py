@@ -12,10 +12,10 @@ class DataIngestionAgent:
     - Converts timestamps to ISO 8601 format (UTC).
     - Removes duplicate transactions based on transaction_id and timestamp.
     - Maps known fields and places others into metadata.
+    (This agent remains largely unchanged as it does not use the LLM base structure)
     """
     def __init__(self):
         """Initialize the data ingestion agent."""
-        # No client needed as this agent does not use an LLM
         self.processed_transactions: List[Dict[str, Any]] = []
         self.seen_transactions: Set[Tuple[str, str]] = set()
         # Define core fields expected in the output transaction object
@@ -74,34 +74,34 @@ class DataIngestionAgent:
         metadata = {}
 
         for key, value in transaction.items():
-            if key in self.core_fields:
+            # Use the standardized timestamp
+            if key == "timestamp":
+                 standardized_tx[key] = standardized_ts
+                 continue # Skip adding raw timestamp to metadata
+
+            if key in self.core_fields or key in self.optional_core_fields:
                 standardized_tx[key] = value
-            elif key in self.optional_core_fields:
-                standardized_tx[key] = value
-            # Special handling for timestamp - use the standardized one
-            elif key == "timestamp":
-                standardized_tx[key] = standardized_ts
-            # Put all other fields into metadata
             else:
                 metadata[key] = value
 
         # Ensure all mandatory core fields are present (handle if needed, e.g., raise error or default)
-        # For now, assume they exist if tx_id and timestamp were present
-        if not all(field in standardized_tx for field in self.core_fields):
-            logging.warning(f"Transaction {tx_id} is missing some core fields after processing. Raw: {transaction}")
+        # This check assumes 'timestamp' was already handled above
+        core_fields_no_ts = self.core_fields - {"timestamp"}
+        if not all(field in standardized_tx for field in core_fields_no_ts):
+            logging.warning(f"Transaction {tx_id} is missing some core fields after processing. Check required fields like amount, currency, sender, receiver. Raw: {transaction}")
             # Decide if you want to skip or proceed with missing fields
             # return None # Option to skip
 
         # Add metadata if it's not empty
         if metadata:
             standardized_tx["metadata"] = metadata
-            
+
         # Specific type checks/conversions (example for amount)
         if 'amount' in standardized_tx:
             try:
                 standardized_tx['amount'] = float(standardized_tx['amount'])
             except (ValueError, TypeError):
-                logging.warning(f"Could not convert amount '{standardized_tx['amount']}' to float for tx {tx_id}. Keeping original.")
+                logging.warning(f"Could not convert amount '{standardized_tx.get('amount')}' to float for tx {tx_id}. Keeping original.")
 
         return standardized_tx
 

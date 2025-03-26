@@ -10,7 +10,7 @@ from typing import Dict, Any, List
 import pdfrw
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def analyze_field_properties(field: pdfrw.objects.pdfdict.PdfDict) -> Dict[str, Any]:
@@ -24,57 +24,52 @@ def analyze_field_properties(field: pdfrw.objects.pdfdict.PdfDict) -> Dict[str, 
         Dictionary containing all relevant field properties
     """
     properties = {}
-    
-    # Basic field properties
-    properties["name"] = str(field["/T"]).strip("()")
-    properties["type"] = str(field["/FT"]) if "/FT" in field else None
-    properties["flags"] = str(field["/Ff"]) if "/Ff" in field else None
-    properties["page"] = getattr(field, "page_number", None)
-    
-    # Get field value if present
+    for key in field.keys():
+        try:
+            # Decode if necessary (Names, Strings might be bytes)
+            # pdfrw often handles this, but explicit decoding might be needed sometimes
+            value = field[key]
+            prop_name = key.decode('utf-8') if isinstance(key, bytes) else str(key)
+            
+            # Basic representation for logging/debugging
+            # For complex types like nested dicts/arrays, you might want deeper inspection
+            if isinstance(value, pdfrw.objects.pdfdict.PdfDict):
+                properties[prop_name] = f"Dict with keys: {list(value.keys())}"
+            elif isinstance(value, pdfrw.objects.pdfarray.PdfArray):
+                 properties[prop_name] = f"Array: {value}" # pdfrw makes arrays list-like
+            elif isinstance(value, pdfrw.objects.pdfname.BasePdfName):
+                 properties[prop_name] = str(value) # Get the name string e.g. '/Yes'
+            elif isinstance(value, pdfrw.objects.pdfstring.PdfString):
+                 properties[prop_name] = value.decode() # Decode PDF string
+            else:
+                 properties[prop_name] = repr(value) # General representation
+
+        except Exception as e:
+            logger.warning(f"Could not process key {key}: {e}")
+            properties[str(key)] = f"<Error processing: {e}>"
+
+    # Add the specific ones you already had for clarity, possibly overwriting
+    # the generic ones if needed for specific formatting
+    if "/T" in field:
+        properties["/T (Name)"] = str(field["/T"]).strip("()")
+    if "/FT" in field:
+        properties["/FT (Type)"] = str(field["/FT"])
+    if "/Ff" in field:
+        properties["/Ff (Flags)"] = int(field["/Ff"]) # Keep as int for bitwise checks
     if "/V" in field:
-        properties["current_value"] = str(field["/V"])
-    
-    # Get appearance state if present
+         # Specific handling for Value as it's often important
+         v_val = field["/V"]
+         if isinstance(v_val, pdfrw.objects.pdfname.BasePdfName):
+             properties["/V (Value)"] = str(v_val)
+         elif isinstance(v_val, pdfrw.objects.pdfstring.PdfString):
+             properties["/V (Value)"] = v_val.decode()
+         else:
+              properties["/V (Value)"] = repr(v_val)
     if "/AS" in field:
-        properties["appearance_state"] = str(field["/AS"])
-    
-    # Get default value if present
-    if "/DV" in field:
-        properties["default_value"] = str(field["/DV"])
-    
-    # Special handling for text fields
-    if properties["type"] == "/Tx":
-        if "/MaxLen" in field:
-            properties["max_length"] = str(field["/MaxLen"])
-    
-    # Special handling for checkboxes and radio buttons
-    if properties["type"] == "/Btn":
-        # Get appearance dictionary
-        if "/AP" in field:
-            ap_dict = field["/AP"]
-            properties["appearance_options"] = {}
-            
-            # Normal appearance
-            if "/N" in ap_dict:
-                normal_states = list(ap_dict["/N"].keys())
-                if normal_states:
-                    properties["states"] = [str(state) for state in normal_states]
-            
-            # Down appearance (when clicked)
-            if "/D" in ap_dict:
-                down_states = list(ap_dict["/D"].keys())
-                if down_states:
-                    properties["down_states"] = [str(state) for state in down_states]
-        
-        # Check for radio button group
-        if "/Parent" in field:
-            properties["is_radio_button"] = True
-            if "/Opt" in field["/Parent"]:
-                properties["radio_options"] = [
-                    str(opt) for opt in field["/Parent"]["/Opt"]
-                ]
-    
+        properties["/AS (Appearance State)"] = str(field["/AS"])
+
+    properties["page_number"] = getattr(field, "page_number", None) # Library specific
+
     return properties
 
 def get_field_name(annotation: pdfrw.objects.pdfdict.PdfDict) -> str:
@@ -142,14 +137,6 @@ def analyze_pdf_fields(pdf_path: str, output_path: str) -> None:
                     
                     if field_name:
                         field_info[field_name] = field_data
-                        logger.debug(f"Analyzed field: {field_name}")
-                        
-                        # Extra logging for checkbox fields
-                        if field_data.get("type") == "/Btn":
-                            logger.debug(f"Checkbox details for {field_name}:")
-                            logger.debug(f"  States: {field_data.get('states', [])}")
-                            logger.debug(f"  Current value: {field_data.get('current_value')}")
-                            logger.debug(f"  Appearance state: {field_data.get('appearance_state')}")
         
         # Save analysis to JSON
         with open(output_path, 'w') as f:
@@ -158,23 +145,13 @@ def analyze_pdf_fields(pdf_path: str, output_path: str) -> None:
         logger.info(f"Analysis complete. Found {len(field_info)} fields.")
         logger.info(f"Results saved to: {output_path}")
         
-        # Print summary of checkbox fields
+        # Brief summary of checkbox fields
         checkbox_fields = {
             name: data for name, data in field_info.items() 
-            if data.get("type") == "/Btn"
+            if data.get("/FT (Type)") == "/Btn"
         }
         if checkbox_fields:
-            logger.info("\nCheckbox Fields Summary:")
-            for name, data in checkbox_fields.items():
-                logger.info(f"\nField: {name}")
-                logger.info(f"  Page: {data.get('page')}")
-                logger.info(f"  States: {data.get('states', [])}")
-                logger.info(f"  Current Value: {data.get('current_value')}")
-                logger.info(f"  Appearance State: {data.get('appearance_state')}")
-                if "down_states" in data:
-                    logger.info(f"  Down States: {data['down_states']}")
-                if "is_radio_button" in data:
-                    logger.info(f"  Radio Options: {data.get('radio_options', [])}")
+            logger.info(f"\nFound {len(checkbox_fields)} checkbox/radio button fields")
         
     except Exception as e:
         logger.error(f"Error analyzing PDF: {str(e)}")
@@ -183,12 +160,6 @@ def analyze_pdf_fields(pdf_path: str, output_path: str) -> None:
 if __name__ == "__main__":
     # Analyze both the template and filled PDF
     analyze_pdf_fields(
-        "resources/6710-06.pdf",
+        "resources/6710-06_renamed.pdf",
         "resources/field_analysis.json"
-    )
-    
-    print("\nAnalyzing filled PDF:")
-    analyze_pdf_fields(
-        "resources/6710-06_filled_test.pdf",
-        "resources/field_analysis_filled.json"
     )

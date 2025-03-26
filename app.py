@@ -12,8 +12,7 @@ api_key = st.secrets.get("api_key")
 try:
     from agents.agent_01_data_ingestion import DataIngestionAgent
     from agents.agent_02_03_pattern_anomaly_detection import PatternAnomalyDetectionAgent
-    from agents.agent_05_sar_generation import SARGenerationAgent
-    from agents.agent_06_compliance_verification import ComplianceVerificationAgent
+    from workflows.sar_workflow_manager import SARWorkflowManager
     AGENTS_LOADED = True
 except ImportError as e:
     st.error(f"Failed to import agents: {e}. Please ensure agent files exist and are importable.")
@@ -219,112 +218,28 @@ if st.button("Run Fraud Detection Workflow", type="primary", disabled=not can_ru
                         metric_cols[2].metric("Avg. Anomaly Score", summary.get("average_anomaly_score", "N/A").capitalize())
 
 
-                # --- Step 3 & 4: SAR Generation & Compliance Verification (Iterative) ---
-                st.divider()
-                st.markdown("### SAR Generation & Verification Cycle")
+                # --- Step 3: SAR Generation & Verification Workflow ---
+                current_step_index = 2
+                step_name = steps_config[current_step_index]["name"]
+                status_placeholder.info(f"Running: {step_name}...")
+                update_step_status(current_step_index, "running")
+                progress_bar.progress(50, text=f"Running {step_name}...")
 
-                sar_generation_agent = SARGenerationAgent(client)
-                compliance_verification_agent = ComplianceVerificationAgent(client)
+                # Initialize and run workflow manager
+                workflow_manager = SARWorkflowManager(client)
+                workflow_results = workflow_manager.run(analysis_results)
 
-                max_iterations = 3
-                iteration_results = [] # Store results for each iteration
+                # Update progress and status
+                progress_bar.progress(80, text=f"{step_name} Completed.")
+                update_step_status(current_step_index, "completed")
 
-                sar_report = None
-                compliance_verification = None
-                verification_status = "needs_generation" # Initial status
+                # Display workflow results
+                with steps_config[current_step_index]["expander"]:
+                    st.write("Workflow Results:")
+                    st.json(workflow_results)
 
-                # Create tabs for iterations
-                tabs = st.tabs([f"Iteration {i+1}" for i in range(max_iterations)])
-
-                for i in range(max_iterations):
-                    with tabs[i]:
-                        iter_cols = st.columns(2)
-
-                        # --- SAR Generation ---
-                        with iter_cols[0]:
-                            st.markdown(f"#### {steps_config[2]['icon']} SAR Generation (Iter. {i+1})")
-                            gen_status = st.empty()
-
-                            if verification_status == "needs_generation" or verification_status == "needs_revision":
-                                current_step_index = 2
-                                step_name = steps_config[current_step_index]["name"]
-                                status_placeholder.info(f"Running: {step_name} (Iter. {i+1})...")
-                                update_step_status(current_step_index, "running", f"(Iter. {i+1})")
-                                gen_status.info("Generating...")
-                                progress_bar.progress(50 + (i * 15), text=f"Running {step_name} (Iter. {i+1})...")
-
-                                # Prepare input for SAR generation
-                                if i == 0: # First iteration
-                                    input_for_sar = analysis_results
-                                else: # Subsequent iterations include feedback
-                                    input_for_sar = {
-                                        "anomaly_detection": analysis_results, # Always provide original analysis
-                                        "verification_feedback": compliance_verification # Include previous feedback
-                                    }
-
-                                sar_report = sar_generation_agent.run(input_for_sar)
-                                gen_status.success("Generated")
-                                update_step_status(current_step_index, "completed") # Mark step as completed after first successful gen
-                                st.json(sar_report)
-                            elif verification_status == "approved":
-                                 gen_status.success("Approved in previous iteration.")
-                                 if sar_report: st.json(sar_report) # Show the approved report again
-                                 else: st.warning("Approved, but SAR report data missing.")
-                            else: # Rejected or other status
-                                 gen_status.error(f"Skipped due to status: {verification_status}")
-                                 if sar_report: st.json(sar_report) # Show the last generated report
-
-                        # --- Compliance Verification ---
-                        with iter_cols[1]:
-                            st.markdown(f"#### {steps_config[3]['icon']} Compliance Verification (Iter. {i+1})")
-                            ver_status_widget = st.empty()
-
-                            # Only verify if a SAR was generated/available in this loop
-                            if sar_report and verification_status != "approved":
-                                current_step_index = 3
-                                step_name = steps_config[current_step_index]["name"]
-                                status_placeholder.info(f"Running: {step_name} (Iter. {i+1})...")
-                                update_step_status(current_step_index, "running", f"(Iter. {i+1})")
-                                ver_status_widget.info("Verifying...")
-                                progress_bar.progress(60 + (i * 15), text=f"Running {step_name} (Iter. {i+1})...")
-
-                                compliance_verification = compliance_verification_agent.run(sar_report)
-                                verification_status = compliance_verification.get("verification_result", {}).get("verification_status", "error")
-                                is_compliant = compliance_verification.get("verification_result", {}).get("is_compliant", False)
-                                compliance_score = compliance_verification.get("verification_result", {}).get("compliance_score")
-
-                                # Display verification status clearly
-                                if verification_status == "approved":
-                                    ver_status_widget.success(f"Status: Approved (Score: {compliance_score if compliance_score is not None else 'N/A'})")
-                                elif verification_status == "needs_revision":
-                                    ver_status_widget.warning(f"Status: Needs Revision (Score: {compliance_score if compliance_score is not None else 'N/A'})")
-                                else: # rejected or other
-                                    ver_status_widget.error(f"Status: {verification_status.capitalize()} (Score: {compliance_score if compliance_score is not None else 'N/A'})")
-
-                                update_step_status(current_step_index, "completed") # Mark step completed after first verification
-                                st.json(compliance_verification)
-
-                                # Store results
-                                iteration_results.append({
-                                    "iteration": i + 1,
-                                    "sar_report": sar_report,
-                                    "compliance_verification": compliance_verification,
-                                    "status": verification_status
-                                })
-                            elif verification_status == "approved":
-                                ver_status_widget.success("Approved.")
-                                if compliance_verification: st.json(compliance_verification)
-                            else:
-                                ver_status_widget.info("Verification skipped (SAR not generated or already approved).")
-
-
-                    # Check if approved, break the loop
-                    if verification_status == "approved":
-                        status_placeholder.success(f"SAR Approved in Iteration {i+1}!")
-                        break
-                    elif verification_status == "rejected":
-                         status_placeholder.error(f"SAR Rejected in Iteration {i+1}. Stopping.")
-                         break # Stop if rejected
+                # Update verification status for final outcome display
+                verification_status = workflow_results["status"]
 
                 # --- Final Outcome ---
                 st.divider()

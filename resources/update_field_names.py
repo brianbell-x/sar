@@ -310,7 +310,7 @@ def update_pdf_field_names(pdf_path: str, output_path: str, field_mapping: Dict[
                     original_name = annotation['/T']
                     # Decode if it's a PdfString, otherwise assume it's already a string-like object
                     if isinstance(original_name, pdfrw.PdfString):
-                         original_name = original_name.decode('utf-8', errors='ignore')
+                         original_name = original_name.to_unicode() # Use pdfrw's method
                     else:
                          original_name = str(original_name).strip("()") # Handle cases like PdfName '/item1'
 

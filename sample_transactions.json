@@ -1,349 +1,270 @@
 {
-  "transactions": [
-    {
-      "transaction_id": "TX123456789",
-      "timestamp": "2025-03-10T14:23:45Z",
-      "amount": 5000.00,
-      "sender": "John Smith",
-      "sender_account": "ACCT-JS-9876",
-      "receiver": "Jane Doe",
-      "receiver_account": "ACCT-JD-5432",
-      "transaction_type": "wire_transfer",
-      "source_system": "online_banking",
-      "currency": "USD",
-      "description": "Business payment",
-      "ip_address": "192.168.1.1",
-      "device_id": "MAC-BOOK-PRO-2023",
-      "location": {
-        "country": "USA",
-        "city": "New York",
-        "coordinates": {
-          "latitude": 40.7128,
-          "longitude": -74.0060
+  "potential_false_positive": {
+    "description": "Large, but likely legitimate B2B transactions",
+    "transactions": [
+      {
+        "transaction_id": "TX-FP-001",
+        "timestamp": "2025-05-15T10:30:00Z",
+        "amount": 150000.00,
+        "sender": "Precision Manufacturing Inc.",
+        "sender_account": "ACCT-PM-1122",
+        "receiver": "Industrial Robotics Co.",
+        "receiver_account": "ACCT-IR-3344",
+        "transaction_type": "wire_transfer",
+        "source_system": "business_banking_portal",
+        "currency": "USD",
+        "description": "Payment for custom assembly line machinery - PO# 78910",
+        "ip_address": "10.20.30.40",
+        "device_id": "CORP-FINANCE-WS01",
+        "location": {
+          "country": "USA",
+          "city": "Detroit",
+          "coordinates": {
+            "latitude": 42.3314,
+            "longitude": -83.0458
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-FP-002",
+        "timestamp": "2025-05-16T14:05:10Z",
+        "amount": 75000.00,
+        "sender": "Creative Software Solutions",
+        "sender_account": "ACCT-CSS-5566",
+        "receiver": "Data Analytics Corp",
+        "receiver_account": "ACCT-DAC-7788",
+        "transaction_type": "ach_transfer",
+        "source_system": "online_banking",
+        "currency": "USD",
+        "description": "Annual Enterprise Software License Renewal - INV# LIC-2025-A",
+        "ip_address": "192.168.10.100",
+        "device_id": "LAPTOP-DEV-SARAH",
+        "location": {
+          "country": "USA",
+          "city": "Austin",
+          "coordinates": {
+            "latitude": 30.2672,
+            "longitude": -97.7431
+          }
         }
       }
-    },
-    {
-      "transaction_id": "TX123456790",
-      "timestamp": "2025-03-10T14:25:12Z",
-      "amount": 4999.00,
-      "sender": "John Smith",
-      "sender_account": "ACCT-JS-9876",
-      "receiver": "Jane Doe",
-      "receiver_account": "ACCT-JD-5432",
-      "transaction_type": "wire_transfer",
-      "source_system": "online_banking",
-      "currency": "USD",
-      "description": "Business payment",
-      "ip_address": "192.168.1.1",
-      "device_id": "MAC-BOOK-PRO-2023",
-      "location": {
-        "country": "USA",
-        "city": "New York",
-        "coordinates": {
-          "latitude": 40.7128,
-          "longitude": -74.0060
+    ]
+  },
+  "known_pattern_structuring": {
+    "description": "Cash deposits structured below $10,000 threshold",
+    "transactions": [
+      {
+        "transaction_id": "TX-STRUCT-001",
+        "timestamp": "2025-05-20T09:15:05Z",
+        "amount": 9800.00,
+        "sender": "Peter Vance",
+        "sender_account": "ACCT-PV-1234",
+        "receiver": "Peter Vance",
+        "receiver_account": "ACCT-PV-1234",
+        "transaction_type": "cash_deposit",
+        "source_system": "atm",
+        "currency": "USD",
+        "description": "Deposit",
+        "ip_address": null,
+        "device_id": "ATM-BRANCH-MAIN-01",
+        "location": {
+          "country": "USA",
+          "city": "Miami",
+          "coordinates": {
+            "latitude": 25.7617,
+            "longitude": -80.1918
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-STRUCT-002",
+        "timestamp": "2025-05-20T11:45:30Z",
+        "amount": 9950.00,
+        "sender": "Peter Vance",
+        "sender_account": "ACCT-PV-1234",
+        "receiver": "Peter Vance",
+        "receiver_account": "ACCT-PV-1234",
+        "transaction_type": "cash_deposit",
+        "source_system": "atm",
+        "currency": "USD",
+        "description": "",
+        "ip_address": null,
+        "device_id": "ATM-BRANCH-NORTH-03",
+        "location": {
+          "country": "USA",
+          "city": "Miami",
+          "coordinates": {
+            "latitude": 25.8103,
+            "longitude": -80.2042
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-STRUCT-003",
+        "timestamp": "2025-05-20T16:05:12Z",
+        "amount": 9900.00,
+        "sender": "Peter Vance",
+        "sender_account": "ACCT-PV-1234",
+        "receiver": "Peter Vance",
+        "receiver_account": "ACCT-PV-1234",
+        "transaction_type": "cash_deposit",
+        "source_system": "branch_teller",
+        "currency": "USD",
+        "description": "Misc Deposit",
+        "ip_address": null,
+        "device_id": "TELLER-STATION-05",
+        "location": {
+          "country": "USA",
+          "city": "Miami",
+          "coordinates": {
+            "latitude": 25.7743,
+            "longitude": -80.1937
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-STRUCT-004",
+        "timestamp": "2025-05-21T10:00:00Z",
+        "amount": 9850.00,
+        "sender": "Peter Vance",
+        "sender_account": "ACCT-PV-1234",
+        "receiver": "Peter Vance",
+        "receiver_account": "ACCT-PV-1234",
+        "transaction_type": "cash_deposit",
+        "source_system": "atm",
+        "currency": "USD",
+        "description": "Deposit",
+        "ip_address": null,
+        "device_id": "ATM-BRANCH-WEST-02",
+        "location": {
+          "country": "USA",
+          "city": "Miami",
+          "coordinates": {
+            "latitude": 25.7743,
+            "longitude": -80.2554
+          }
         }
       }
-    },
-    {
-      "transaction_id": "TX123456791",
-      "timestamp": "2025-03-10T14:26:33Z",
-      "amount": 4950.00,
-      "sender": "John Smith",
-      "sender_account": "ACCT-JS-9876",
-      "receiver": "Jane Doe",
-      "receiver_account": "ACCT-JD-5432",
-      "transaction_type": "wire_transfer",
-      "source_system": "online_banking",
-      "currency": "USD",
-      "description": "Business payment",
-      "ip_address": "192.168.1.1",
-      "device_id": "MAC-BOOK-PRO-2023",
-      "location": {
-        "country": "USA",
-        "city": "New York",
-        "coordinates": {
-          "latitude": 40.7128,
-          "longitude": -74.0060
+    ]
+  },
+  "novel_pattern_layering": {
+    "description": "Funds rapidly moved through intermediaries, possibly shell entities",
+    "transactions": [
+      {
+        "transaction_id": "TX-NOVEL-001",
+        "timestamp": "2025-05-22T11:00:00Z",
+        "amount": 95000.00,
+        "sender": "Vertex Global Holdings",
+        "sender_account": "ACCT-VGH-CY-987",
+        "receiver": "Laura Chen",
+        "receiver_account": "ACCT-LC-5678",
+        "transaction_type": "international_wire",
+        "source_system": "swift_network",
+        "currency": "USD",
+        "description": "Consulting Fee",
+        "ip_address": null,
+        "device_id": null,
+        "location": {
+          "country": "Cyprus",
+          "city": "Limassol",
+          "coordinates": {
+            "latitude": 34.6784,
+            "longitude": 33.0394
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-NOVEL-002",
+        "timestamp": "2025-05-22T15:30:00Z",
+        "amount": 48000.00,
+        "sender": "Laura Chen",
+        "sender_account": "ACCT-LC-5678",
+        "receiver": "Zenith Trading LLC",
+        "receiver_account": "ACCT-ZT-1111",
+        "transaction_type": "wire_transfer",
+        "source_system": "online_banking",
+        "currency": "USD",
+        "description": "Investment Capital",
+        "ip_address": "72.14.207.99",
+        "device_id": "MOBILE-LC-IPHONE15",
+        "location": {
+          "country": "USA",
+          "city": "New York",
+          "coordinates": {
+            "latitude": 40.7128,
+            "longitude": -74.0060
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-NOVEL-003",
+        "timestamp": "2025-05-22T15:35:00Z",
+        "amount": 45000.00,
+        "sender": "Laura Chen",
+        "sender_account": "ACCT-LC-5678",
+        "receiver": "Apex Solutions Group",
+        "receiver_account": "ACCT-ASG-2222",
+        "transaction_type": "wire_transfer",
+        "source_system": "online_banking",
+        "currency": "USD",
+        "description": "Service Payment",
+        "ip_address": "72.14.207.99",
+        "device_id": "MOBILE-LC-IPHONE15",
+        "location": {
+          "country": "USA",
+          "city": "New York",
+          "coordinates": {
+            "latitude": 40.7128,
+            "longitude": -74.0060
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-NOVEL-004",
+        "timestamp": "2025-05-23T09:05:00Z",
+        "amount": 47500.00,
+        "sender": "Zenith Trading LLC",
+        "sender_account": "ACCT-ZT-1111",
+        "receiver": "Global Swift Payments",
+        "receiver_account": "ACCT-GSP-MERCH-XYZ",
+        "transaction_type": "ach_transfer",
+        "source_system": "business_banking_api",
+        "currency": "USD",
+        "description": "Platform service fees Q2",
+        "ip_address": "104.18.32.200",
+        "device_id": "API-CLIENT-ZENITH",
+        "location": {
+          "country": "USA",
+          "city": "Wilmington",
+          "coordinates": {
+            "latitude": 39.7459,
+            "longitude": -75.5466
+          }
+        }
+      },
+      {
+        "transaction_id": "TX-NOVEL-005",
+        "timestamp": "2025-05-23T11:20:00Z",
+        "amount": 44800.00,
+        "sender": "Apex Solutions Group",
+        "sender_account": "ACCT-ASG-2222",
+        "receiver": "Offshore Incorporators Ltd",
+        "receiver_account": "ACCT-OIL-BVI-123",
+        "transaction_type": "international_wire",
+        "source_system": "business_banking_portal",
+        "currency": "USD",
+        "description": "Formation and Registered Agent Fees",
+        "ip_address": "208.80.154.224",
+        "device_id": "WEB-SESSION-APEX",
+        "location": {
+          "country": "USA",
+          "city": "Las Vegas",
+          "coordinates": {
+            "latitude": 36.1699,
+            "longitude": -115.1398
+          }
         }
       }
-    },
-    {
-      "transaction_id": "TX987654321",
-      "timestamp": "2025-03-10T15:45:22Z",
-      "amount": 25000.00,
-      "sender": "Global Trading LLC",
-      "sender_account": "ACCT-GT-1234",
-      "receiver": "Offshore Holdings Inc",
-      "receiver_account": "ACCT-OH-7890",
-      "transaction_type": "international_wire",
-      "source_system": "branch_banking",
-      "currency": "USD",
-      "description": "Consulting services",
-      "ip_address": null,
-      "device_id": null,
-      "location": {
-        "country": "USA",
-        "city": "Miami",
-        "coordinates": {
-          "latitude": 25.7617,
-          "longitude": -80.1918
-        }
-      }
-    },
-    {
-      "transaction_id": "TX567891234",
-      "timestamp": "2025-03-10T16:12:05Z",
-      "amount": 9999.00,
-      "sender": "Bob Johnson",
-      "sender_account": "ACCT-BJ-2468",
-      "receiver": "Cash Services Ltd",
-      "receiver_account": "ACCT-CS-1357",
-      "transaction_type": "cash_deposit",
-      "source_system": "atm",
-      "currency": "USD",
-      "description": "",
-      "ip_address": null,
-      "device_id": "ATM-NORTH-123",
-      "location": {
-        "country": "USA",
-        "city": "Chicago",
-        "coordinates": {
-          "latitude": 41.8781,
-          "longitude": -87.6298
-        }
-      }
-    },
-    {
-      "transaction_id": "TX567891235",
-      "timestamp": "2025-03-10T16:15:22Z",
-      "amount": 9999.00,
-      "sender": "Bob Johnson",
-      "sender_account": "ACCT-BJ-2468",
-      "receiver": "Cash Services Ltd",
-      "receiver_account": "ACCT-CS-1357",
-      "transaction_type": "cash_deposit",
-      "source_system": "atm",
-      "currency": "USD",
-      "description": "",
-      "ip_address": null,
-      "device_id": "ATM-SOUTH-456",
-      "location": {
-        "country": "USA",
-        "city": "Chicago",
-        "coordinates": {
-          "latitude": 41.8781,
-          "longitude": -87.6298
-        }
-      }
-    },
-    {
-      "transaction_id": "TX567891236",
-      "timestamp": "2025-03-10T16:18:45Z",
-      "amount": 9999.00,
-      "sender": "Bob Johnson",
-      "sender_account": "ACCT-BJ-2468",
-      "receiver": "Cash Services Ltd",
-      "receiver_account": "ACCT-CS-1357",
-      "transaction_type": "cash_deposit",
-      "source_system": "atm",
-      "currency": "USD",
-      "description": "",
-      "ip_address": null,
-      "device_id": "ATM-EAST-789",
-      "location": {
-        "country": "USA",
-        "city": "Chicago",
-        "coordinates": {
-          "latitude": 41.8781,
-          "longitude": -87.6298
-        }
-      }
-    },
-    {
-      "transaction_id": "TX135792468",
-      "timestamp": "2025-03-10T18:30:15Z",
-      "amount": 150000.00,
-      "sender": "Luxury Real Estate LLC",
-      "sender_account": "ACCT-LR-9753",
-      "receiver": "Premium Properties Inc",
-      "receiver_account": "ACCT-PP-8642",
-      "transaction_type": "wire_transfer",
-      "source_system": "business_banking",
-      "currency": "USD",
-      "description": "Property acquisition",
-      "ip_address": "10.0.0.15",
-      "device_id": "WINDOWS-PC-2024",
-      "location": {
-        "country": "USA",
-        "city": "Los Angeles",
-        "coordinates": {
-          "latitude": 34.0522,
-          "longitude": -118.2437
-        }
-      }
-    },
-    {
-      "transaction_id": "TX246813579",
-      "timestamp": "2025-03-10T20:45:33Z",
-      "amount": 3500.00,
-      "sender": "Mary Williams",
-      "sender_account": "ACCT-MW-3579",
-      "receiver": "Crypto Exchange Ltd",
-      "receiver_account": "ACCT-CE-7531",
-      "transaction_type": "online_transfer",
-      "source_system": "mobile_app",
-      "currency": "USD",
-      "description": "Investment",
-      "ip_address": "172.16.254.1",
-      "device_id": "SAMSUNG-GALAXY-S25",
-      "location": {
-        "country": "USA",
-        "city": "Seattle",
-        "coordinates": {
-          "latitude": 47.6062,
-          "longitude": -122.3321
-        }
-      }
-    },
-    {
-      "transaction_id": "TX369258147",
-      "timestamp": "2025-03-10T22:15:07Z",
-      "amount": 75000.00,
-      "sender": "Sarah Thompson",
-      "sender_account": "ACCT-ST-1593",
-      "receiver": "Unknown Beneficiary",
-      "receiver_account": "ACCT-UB-7539",
-      "transaction_type": "international_wire",
-      "source_system": "online_banking",
-      "currency": "USD",
-      "description": "Personal transfer",
-      "ip_address": "203.0.113.195",
-      "device_id": "WINDOWS-LAPTOP-2023",
-      "location": {
-        "country": "USA",
-        "city": "Boston",
-        "coordinates": {
-          "latitude": 42.3601,
-          "longitude": -71.0589
-        }
-      }
-    },
-    {
-      "transaction_id": "TX159357486",
-      "timestamp": "2025-03-11T09:20:45Z",
-      "amount": 250000.00,
-      "sender": "Investment Holdings Corp",
-      "sender_account": "ACCT-IH-9517",
-      "receiver": "Cayman Financial Services",
-      "receiver_account": "ACCT-CF-3579",
-      "transaction_type": "international_wire",
-      "source_system": "business_banking",
-      "currency": "USD",
-      "description": "Investment return",
-      "ip_address": "198.51.100.42",
-      "device_id": "MAC-DESKTOP-2024",
-      "location": {
-        "country": "USA",
-        "city": "San Francisco",
-        "coordinates": {
-          "latitude": 37.7749,
-          "longitude": -122.4194
-        }
-      }
-    },
-    {
-      "transaction_id": "TX753951824",
-      "timestamp": "2025-03-11T10:05:18Z",
-      "amount": 4999.00,
-      "sender": "David Miller",
-      "sender_account": "ACCT-DM-8642",
-      "receiver": "Cash Express Inc",
-      "receiver_account": "ACCT-CE-9517",
-      "transaction_type": "cash_withdrawal",
-      "source_system": "branch_banking",
-      "currency": "USD",
-      "description": "Personal withdrawal",
-      "ip_address": null,
-      "device_id": null,
-      "location": {
-        "country": "USA",
-        "city": "Dallas",
-        "coordinates": {
-          "latitude": 32.7767,
-          "longitude": -96.7970
-        }
-      }
-    },
-    {
-      "transaction_id": "TX753951825",
-      "timestamp": "2025-03-11T10:15:22Z",
-      "amount": 4999.00,
-      "sender": "David Miller",
-      "sender_account": "ACCT-DM-8642",
-      "receiver": "Cash Express Inc",
-      "receiver_account": "ACCT-CE-9517",
-      "transaction_type": "cash_withdrawal",
-      "source_system": "branch_banking",
-      "currency": "USD",
-      "description": "Personal withdrawal",
-      "ip_address": null,
-      "device_id": null,
-      "location": {
-        "country": "USA",
-        "city": "Dallas",
-        "coordinates": {
-          "latitude": 32.7767,
-          "longitude": -96.7970
-        }
-      }
-    },
-    {
-      "transaction_id": "TX753951826",
-      "timestamp": "2025-03-11T10:25:33Z",
-      "amount": 4999.00,
-      "sender": "David Miller",
-      "sender_account": "ACCT-DM-8642",
-      "receiver": "Cash Express Inc",
-      "receiver_account": "ACCT-CE-9517",
-      "transaction_type": "cash_withdrawal",
-      "source_system": "branch_banking",
-      "currency": "USD",
-      "description": "Personal withdrawal",
-      "ip_address": null,
-      "device_id": null,
-      "location": {
-        "country": "USA",
-        "city": "Dallas",
-        "coordinates": {
-          "latitude": 32.7767,
-          "longitude": -96.7970
-        }
-      }
-    },
-    {
-      "transaction_id": "TX951753684",
-      "timestamp": "2025-03-11T11:30:42Z",
-      "amount": 1000000.00,
-      "sender": "Anonymous Holdings Ltd",
-      "sender_account": "ACCT-AH-7531",
-      "receiver": "Shell Corporation Inc",
-      "receiver_account": "ACCT-SC-8642",
-      "transaction_type": "international_wire",
-      "source_system": "private_banking",
-      "currency": "USD",
-      "description": "Confidential transaction",
-      "ip_address": "45.67.89.123",
-      "device_id": "ENCRYPTED-DEVICE-001",
-      "location": {
-        "country": "Switzerland",
-        "city": "Zurich",
-        "coordinates": {
-          "latitude": 47.3769,
-          "longitude": 8.5417
-        }
-      }
-    }
-  ]
+    ]
+  }
 }
